@@ -1,5 +1,5 @@
 ---
-title: "Trabajos con Plantas Extintas"
+title: "Trabajos con Plantas Extintas (Clase 2 Derek Corcoran)"
 output: github_document
 ---
 
@@ -30,4 +30,18 @@ plantas <- readr::read_csv( 'https://raw.githubusercontent.com/rfordatascience/t
 ```
 
 
+## Filtrando los datos para resolver el ejemplo 1
+
+
+El código que voya a ejecutar ahora, es para resolver el problema en el siguiente [slide](https://github.com/derek-corcoran-barrios/derek-corcoran-barrios.github.io/blob/master/Clase2/Clase2InvestigacionReproducible.Rmd), para poner dentro de la base de datos sólo los datos de Chile, y sólo usar las columnas para país (*country*), la especie (*binomial_name*) y la categoría de IUCN (*red_list_cateogry*).
+
+
+```{r}
+Chile <- plantas %>%
+  dplyr::filter(country == "Chile") %>%
+  dplyr::select(binomial_name, country, red_list_category)
+
+Chile
+
+```
 

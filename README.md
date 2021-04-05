@@ -1,4 +1,4 @@
-Trabajos con Plantas Extintas
+Trabajos con Plantas Extintas (Clase 2 Derek Corcoran)
 ================
 
 # Introducción
@@ -44,3 +44,26 @@ plantas <- readr::read_csv( 'https://raw.githubusercontent.com/rfordatascience/t
     ##   red_list_category = col_character()
     ## )
     ## i Use `spec()` for the full column specifications.
+
+## Filtrando los datos para resolver el ejemplo 1
+
+El código que voya a ejecutar ahora, es para resolver el problema en el
+siguiente
+[slide](https://github.com/derek-corcoran-barrios/derek-corcoran-barrios.github.io/blob/master/Clase2/Clase2InvestigacionReproducible.Rmd),
+para poner dentro de la base de datos sólo los datos de Chile, y sólo
+usar las columnas para país (*country*), la especie (*binomial\_name*) y
+la categoría de IUCN (*red\_list\_cateogry*).
+
+``` r
+Chile <- plantas %>%
+  dplyr::filter(country == "Chile") %>%
+  dplyr::select(binomial_name, country, red_list_category)
+
+Chile
+```
+
+    ## # A tibble: 2 x 3
+    ##   binomial_name           country red_list_category  
+    ##   <chr>                   <chr>   <chr>              
+    ## 1 Santalum fernandezianum Chile   Extinct            
+    ## 2 Sophora toromiro        Chile   Extinct in the Wild
